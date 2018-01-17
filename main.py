@@ -13,7 +13,7 @@ def index():
 @app.route('/adivinaNum', methods=['GET', 'POST'])
 def adivina():
     global rand
-    print rand
+    
     sol = "No hay Numero"
     if request.method == "POST":
         num = request.form["numero"]
@@ -26,7 +26,7 @@ def adivina():
         else:
             sol = "Correcto! Se ha generado otro numero"
             rand = randint(1,100)
-            print rand
-    return render_template("adivinaNum.html", mensaje=rand)
+            
+    return render_template("adivinaNum.html", mensaje=sol)
 if __name__=="__main__":
 	app.run()
